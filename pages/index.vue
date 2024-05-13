@@ -1,6 +1,6 @@
 <template>
   coucou
-  <button @click="retrieveSupabaseData">click for get</button>
+  <Button @click="retrieveSupabaseData">click for get</Button>
 
   <code><pre>{{ podcast }}</pre></code>
 </template>
