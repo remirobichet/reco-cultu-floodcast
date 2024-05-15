@@ -1,7 +1,6 @@
 # Todos
 
-- [ ] nuxt-security
-- [ ] infinity scroll homapage
+- [x] nuxt-security
 - [x] avatar participants
 - [ ] SEO
 - [ ] page participant/1
