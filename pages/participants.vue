@@ -1,24 +1,26 @@
 <template>
   <div class="text-lg font-medium">Participants</div>
   <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-    <Card v-for="participant in participants" class="cursor-pointer hover:bg-accent">
-      <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-1">
-      </CardHeader>
-      <CardContent class="flex items-center gap-3">
-        <Avatar class="flex h-9 w-9">
-          <AvatarImage :src="participant.avatar" :alt="`${participant.name} avatar`" />
-          <AvatarFallback>{{ participant.name[0] }}</AvatarFallback>
-        </Avatar>
-        <div class="grid gap-1">
-          <p class="text-sm font-medium leading-none">
-            {{ participant.name }}
-          </p>
-          <p class="text-sm text-muted-foreground">
-            {{ participant.participationCount }} participations
-          </p>
-        </div>
-      </CardContent>
-    </Card>
+    <NuxtLink v-for="participant in participants" :to="`participant/${participant.id}`">
+      <Card class="cursor-pointer hover:bg-accent">
+        <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-1">
+        </CardHeader>
+        <CardContent class="flex items-center gap-3">
+          <Avatar class="flex h-9 w-9">
+            <AvatarImage :src="participant.avatar" :alt="`${participant.name} avatar`" />
+            <AvatarFallback>{{ participant.name[0] }}</AvatarFallback>
+          </Avatar>
+          <div class="grid gap-1">
+            <p class="text-sm font-medium leading-none">
+              {{ participant.name }}
+            </p>
+            <p class="text-sm text-muted-foreground">
+              {{ participant.participationCount }} participations
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </NuxtLink>
   </div>
 </template>
 
