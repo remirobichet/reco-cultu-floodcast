@@ -2,7 +2,9 @@
 
 - [ ] nuxt-security
 - [ ] infinity scroll homapage
-- [ ] avatar participants
+- [x] avatar participants
+- [ ] SEO
+- [ ] page participant/1
 
 # Nuxt 3 Minimal Starter
 
