@@ -13,9 +13,9 @@
     <div class="flex flex-col gap-2">
       <div class="text-lg font-medium">Participants</div>
       <div class="flex flex-row gap-2">
-        <div v-for="participant in data.participants">
+        <NuxtLink v-for="participant in data.participants" :to="`/participant/${participant.id}`">
           {{ participant.name }}
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
