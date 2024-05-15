@@ -1,23 +1,25 @@
 <template>
   <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
     <NuxtLink v-for="podcast in podcasts" :to="`/${podcast.season}-${podcast.episode}`">
-      <Card class="cursor-pointer hover:bg-accent">
+      <Card class="flex flex-col h-full cursor-pointer hover:bg-accent">
         <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle class="text-lg font-medium">
             S{{ podcast.season }}E{{ podcast.episode }}
           </CardTitle>
         </CardHeader>
         <CardContent class="flex flex-col gap-3">
-          <div class="text-2xl font-bold line-clamp-3">
+          <div class="text-2xl font-bold line-clamp-1">
             {{ podcast.name }}
           </div>
           <p class="text-xs text-muted-foreground line-clamp-3">
             {{ podcast.description }}
           </p>
+        </CardContent>
+        <CardFooter>
           <p class="text-xs">
             {{ podcast.date }}
           </p>
-        </CardContent>
+        </CardFooter>
       </Card>
     </NuxtLink>
   </div>
