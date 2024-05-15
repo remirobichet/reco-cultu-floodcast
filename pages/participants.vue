@@ -21,8 +21,6 @@ const { data: participants } = await useAsyncData(
       .from('participant')
       .select()
 
-      console.log(`👀 participants`, participants)
-
     if (participants) {
       return participants
     } else {
