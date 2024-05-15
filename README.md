@@ -3,7 +3,8 @@
 - [x] nuxt-security
 - [x] avatar participants
 - [ ] SEO
-- [ ] page participant/1
+- [x] page participant/1
+- [x] page podcast --> redirect to page participant
 
 # Nuxt 3 Minimal Starter
 
