@@ -14,14 +14,16 @@
       <div class="text-2xl font-medium mb-8">Recommandations</div>
       <div class="flex flex-col gap-4">
         <div v-for="recommendation in data.recommendations">
-          <div class="flex items-center gap-2">
-            <Avatar class="flex h-9 w-9">
-              <AvatarImage :src="recommendation.participant.avatar"
-                :alt="`${recommendation.participant.name} avatar`" />
-              <AvatarFallback>{{ recommendation.participant.name[0] }}</AvatarFallback>
-            </Avatar>
-            <p class="text-lg font-bold">{{ recommendation.participant.name }}</p>
-          </div>
+          <NuxtLink :to="`participant/${recommendation.participant.id}`">
+            <div class="flex items-center gap-2">
+              <Avatar class="flex h-9 w-9">
+                <AvatarImage :src="recommendation.participant.avatar"
+                  :alt="`${recommendation.participant.name} avatar`" />
+                <AvatarFallback>{{ recommendation.participant.name[0] }}</AvatarFallback>
+              </Avatar>
+              <p class="text-lg font-bold">{{ recommendation.participant.name }}</p>
+            </div>
+          </NuxtLink>
           <blockquote class="p-4 my-4 border-s-4">
             <pre v-html="recommendation.text" class="text-xl leading-relaxed font-sans whitespace-break-spaces"></pre>
           </blockquote>
