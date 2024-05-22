@@ -21,6 +21,19 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: ''
   },
+  security: {
+    headers: {
+      contentSecurityPolicy: {
+        'img-src': [
+          "'self'",
+          "'unsafe-inline'",
+          "data:",
+          "http:",
+          "https:",
+        ],
+      }
+    },
+  },
   runtimeConfig: {
     public: {
       SUPABASE_URL: process.env.SUPABASE_URL,
