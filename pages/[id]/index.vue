@@ -1,12 +1,12 @@
 <template>
   <div class="text-5xl font-bold line-clamp-3">
-    {{ data.podcast.name }}
+    {{ data.podcast?.name }}
   </div>
   <p class="text-md text-muted-foreground line-clamp-3">
-    {{ data.podcast.description }}
+    {{ data.podcast?.description }}
   </p>
   <p class="text-md">
-    {{ data.podcast.date }}
+    {{ data.podcast?.date }}
   </p>
 
   <div class="flex flex-row gap-4">
