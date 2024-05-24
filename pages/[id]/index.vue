@@ -13,18 +13,19 @@
     <div class="flex flex-col gap-2">
       <div class="text-2xl font-medium mb-8">Recommandations</div>
       <div class="flex flex-col gap-4">
-        <div v-for="recommendation in data.recommendations">
-          <NuxtLink :to="`participant/${recommendation.participant.id}`">
+        <div v-for="group in data.groupedRecommendations">
+          <NuxtLink :to="`participant/${group.participant.id}`">
             <div class="flex items-center gap-2">
               <Avatar class="flex h-9 w-9">
-                <AvatarImage :src="recommendation.participant.avatar"
-                  :alt="`${recommendation.participant.name} avatar`" />
-                <AvatarFallback>{{ recommendation.participant.name[0] }}</AvatarFallback>
+                <AvatarImage v-if="group.participant.avatar" :src="group.participant.avatar"
+                  :alt="`${group.participant.name} avatar`" />
+                <AvatarFallback>{{ group.participant.name[0] }}</AvatarFallback>
               </Avatar>
-              <p class="text-lg font-bold">{{ recommendation.participant.name }}</p>
+              <p class="text-lg font-bold">{{ group.participant.name }}</p>
             </div>
           </NuxtLink>
-          <blockquote class="p-4 my-4 border-s-4">
+          <blockquote v-for="recommendation in group.recommendations" class="p-4 my-4 border-s-4">
+            <CategoryBadge v-for="category in recommendation.categories" :category="category" class="mb-2 mr-2" />
             <pre v-html="recommendation.text" class="text-xl leading-relaxed font-sans whitespace-break-spaces"></pre>
           </blockquote>
         </div>
@@ -49,7 +50,7 @@ const { data } = await useAsyncData(
   async () => {
     const response = {
       podcast: undefined,
-      recommendations: [],
+      groupedRecommendations: [],
     }
 
     const season = parseInt(route.params.id.split('-')[0])
@@ -71,7 +72,14 @@ const { data } = await useAsyncData(
       .eq('podcast_id', podcast.id)
 
     if (recommendations) {
-      response.recommendations = recommendations
+      const groupedRecommendations = recommendations.reduce((acc, recommendation) => {
+        if (!acc[recommendation.participant_id]) {
+          acc[recommendation.participant_id] = { participant: recommendation.participant, recommendations: [] }
+        }
+        acc[recommendation.participant_id].recommendations.push(recommendation)
+        return acc
+      }, {})
+      response.groupedRecommendations = groupedRecommendations
     }
 
     return response
