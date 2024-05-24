@@ -7,7 +7,7 @@
         </CardHeader>
         <CardContent class="flex items-center gap-3">
           <Avatar class="flex h-9 w-9">
-            <AvatarImage :src="participant.avatar" :alt="`${participant.name} avatar`" />
+            <AvatarImage v-if="participant.avatar" :src="participant.avatar" :alt="`${participant.name} avatar`" />
             <AvatarFallback>{{ participant.name[0] }}</AvatarFallback>
           </Avatar>
           <div class="grid gap-1">
