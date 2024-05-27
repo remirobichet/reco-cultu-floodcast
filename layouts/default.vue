@@ -7,10 +7,12 @@
           <Podcast class="h-6 w-6" />
           <span class="sr-only">Recommandations culturelles Floodcast</span>
         </NuxtLink>
-        <NuxtLink to="/" exact-active-class="text-muted-foreground" class="text-foreground transition-colors hover:text-muted-foreground">
+        <NuxtLink to="/" exact-active-class="text-muted-foreground"
+          class="text-foreground transition-colors hover:text-muted-foreground">
           Épisodes
         </NuxtLink>
-        <NuxtLink to="/participants" exact-active-class="text-muted-foreground" class="text-foreground transition-colors hover:text-muted-foreground">
+        <NuxtLink to="/participants" exact-active-class="text-muted-foreground"
+          class="text-foreground transition-colors hover:text-muted-foreground">
           Participants
         </NuxtLink>
       </nav>
@@ -27,17 +29,29 @@
               <Podcast class="h-6 w-6" />
               <span class="sr-only">Recommandations culturelles Floodcast</span>
             </NuxtLink>
-            <NuxtLink to="/" exact-active-class="text-muted-foreground" class="text-foreground transition-colors hover:text-muted-foreground" @click="navigationOpen = false">
+            <NuxtLink to="/" exact-active-class="text-muted-foreground"
+              class="text-foreground transition-colors hover:text-muted-foreground" @click="navigationOpen = false">
               Épisodes
             </NuxtLink>
-            <NuxtLink to="/participants" exact-active-class="text-muted-foreground" class="text-foreground transition-colors hover:text-muted-foreground" @click="navigationOpen = false">
+            <NuxtLink to="/participants" exact-active-class="text-muted-foreground"
+              class="text-foreground transition-colors hover:text-muted-foreground" @click="navigationOpen = false">
               Participants
             </NuxtLink>
           </nav>
         </SheetContent>
       </Sheet>
       <div class="flex w-full items-center gap-4 ml-auto md:gap-2 lg:gap-4">
-        <div class="ml-auto flex-1 flex-initial">
+        <div class="ml-auto flex-1 flex-initial flex items-center gap-2">
+          <Button variant="outline" size="sm" @click="mailto">
+            <TooltipProvider delay-duration="100">
+              <Tooltip>
+                <TooltipTrigger>Contact</TooltipTrigger>
+                <TooltipContent>
+                  <p class="text-md text-muted-foreground text-center">👋 Une erreure, une idée, une amélioration ? <br>Clique ici pour me contacter</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </Button>
           <ThemeSwitch />
         </div>
       </div>
@@ -54,4 +68,8 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 
 const navigationOpen = ref(false)
+
+const mailto = () => {
+  window.location.href = 'mailto:remi.robichet@gmail.com'
+}
 </script>
