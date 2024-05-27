@@ -13,7 +13,8 @@
     <div class="flex flex-col gap-2">
       <div class="text-2xl font-medium mb-8">Recommandations</div>
       <div class="flex flex-col gap-4">
-        <div v-for="group in data.groupedRecommendations">
+        <div v-if="data.groupedRecommendations?.length < 1" class="text-xl text-muted-foreground italic">Aucune recommandation pour cet épisode 😴</div>
+        <div v-else v-for="group in data.groupedRecommendations">
           <NuxtLink :to="`participant/${group.participant.id}`">
             <div class="flex items-center gap-2">
               <Avatar class="flex h-9 w-9">
@@ -73,12 +74,13 @@ const { data } = await useAsyncData(
 
     if (recommendations) {
       const groupedRecommendations = recommendations.reduce((acc, recommendation) => {
-        if (!acc[recommendation.participant_id]) {
-          acc[recommendation.participant_id] = { participant: recommendation.participant, recommendations: [] }
+        if (!acc.find(el => el.participant.id === recommendation.participant_id)) {
+          acc.push({ participant: recommendation.participant, recommendations: [] })
         }
-        acc[recommendation.participant_id].recommendations.push(recommendation)
+        const participantRecommendations = acc.find(el => el.participant.id === recommendation.participant.id).recommendations
+        participantRecommendations.push(recommendation)
         return acc
-      }, {})
+      }, [])
       response.groupedRecommendations = groupedRecommendations
     }
 
