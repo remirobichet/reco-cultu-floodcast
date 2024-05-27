@@ -43,7 +43,7 @@
       <div class="flex w-full items-center gap-4 ml-auto md:gap-2 lg:gap-4">
         <div class="ml-auto flex-1 flex-initial flex items-center gap-2">
           <Button variant="outline" size="sm" @click="mailto">
-            <TooltipProvider delay-duration="100">
+            <TooltipProvider :delay-duration="100">
               <Tooltip>
                 <TooltipTrigger>Contact</TooltipTrigger>
                 <TooltipContent>
