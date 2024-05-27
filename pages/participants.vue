@@ -47,7 +47,7 @@ const { data: participants } = await useAsyncData(
     })
 
     if (participants) {
-      return participants
+      return participants.sort((a, b) => b.participationCount - a.participationCount)
     } else {
       return []
     }
