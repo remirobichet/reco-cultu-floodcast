@@ -11,14 +11,24 @@ const iconMapping: { [key: string]: string } = {
   movie: '🎬',
   comic: '💬',
   show: '📺',
-  video_game: '🎮'
+  video_game: '🎮',
+  youtube: '▶️',
+  book: '📚',
+  instagram: '📷',
+  podcast: '🎙️',
+  website: '🌐',
 }
 
 const textMapping: { [key: string]: string } = {
   movie: 'Film',
   comic: 'BD',
   show: 'Série',
-  video_game: 'Jeu vidéo'
+  video_game: 'Jeu vidéo',
+  youtube: 'Youtube',
+  book: 'Livre',
+  instagram: 'Instagram',
+  podcast: 'Podcast',
+  website: 'Site web',
 }
 </script>
 
