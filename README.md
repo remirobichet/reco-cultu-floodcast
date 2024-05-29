@@ -2,8 +2,9 @@
 
 - [x] nuxt-security
 - [x] avatar participants
-- [ ] SEO
-- [ ] Images participants
+- [ ] SEO (meta tags)
+- [ ] page titles
+- [x] Images participants
 - [x] page participant/1
 - [x] page podcast --> redirect to page participant
 
