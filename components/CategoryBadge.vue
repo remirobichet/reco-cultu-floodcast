@@ -17,6 +17,9 @@ const iconMapping: { [key: string]: string } = {
   instagram: '📷',
   podcast: '🎙️',
   website: '🌐',
+  music: '🎶',
+  stand_up: '🎤',
+  art: '🎨',
 }
 
 const textMapping: { [key: string]: string } = {
@@ -29,6 +32,9 @@ const textMapping: { [key: string]: string } = {
   instagram: 'Instagram',
   podcast: 'Podcast',
   website: 'Site web',
+  music: 'Musique',
+  stand_up: 'Stand up',
+  art: 'Artiste',
 }
 </script>
 
