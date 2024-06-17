@@ -38,7 +38,7 @@ const { data: podcasts } = await useAsyncData(
       .select()
 
     if (data) {
-      return data
+      return data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     } else {
       return []
     }
