@@ -20,6 +20,7 @@ const iconMapping: { [key: string]: string } = {
   music: '🎶',
   stand_up: '🎤',
   art: '🎨',
+  food: '🍽️',
 }
 
 const textMapping: { [key: string]: string } = {
@@ -35,6 +36,7 @@ const textMapping: { [key: string]: string } = {
   music: 'Musique',
   stand_up: 'Stand up',
   art: 'Artiste',
+  food: 'Cuisine',
 }
 </script>
 
