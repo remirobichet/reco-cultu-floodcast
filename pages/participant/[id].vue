@@ -60,7 +60,7 @@ const { data } = await useAsyncData(
       .eq('podcast_participant.participant_id', route.params.id)
 
     if (podcasts) {
-      response.podcasts = podcasts
+      response.podcasts = podcasts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     }
 
     return response
