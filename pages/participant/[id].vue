@@ -18,7 +18,7 @@
           {{ podcast.description }}
         </p>
         <p class="text-xs">
-          {{ podcast.date }}
+          {{ $dayjs(podcast.date).format('ll') }}
         </p>
       </CardContent>
     </Card>

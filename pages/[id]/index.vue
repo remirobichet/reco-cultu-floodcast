@@ -14,7 +14,7 @@
     {{ data.podcast?.description }}
   </p>
   <p class="text-md">
-    {{ data.podcast?.date }}
+    {{ $dayjs(data.podcast?.date).format('ll') }}
   </p>
 
   <div class="flex flex-row gap-4">

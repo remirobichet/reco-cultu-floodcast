@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
-    "nuxt-security"
+    "nuxt-security",
+    'dayjs-nuxt'
   ],
   shadcn: {
     /**
@@ -34,6 +35,12 @@ export default defineNuxtConfig({
         ],
       }
     },
+  },
+  dayjs: {
+    locales: ['fr'],
+    plugins: ['utc', 'timezone', 'localizedFormat'],
+    defaultLocale: 'fr',
+    defaultTimezone: 'Europe/Paris',
   },
   runtimeConfig: {
     public: {

@@ -4,7 +4,7 @@
 - [x] avatar participants
 - [ ] SEO (meta tags)
 - [ ] page titles
-- [ ] date episodes format
+- [x] date episodes format
 - [x] ajouter SxEx sur chaque page d'épisode
 - [x] Images participants
 - [x] page participant/1

@@ -17,7 +17,7 @@
         </CardContent>
         <CardFooter>
           <p class="text-xs">
-            {{ podcast.date }}
+            {{ $dayjs(podcast.date).format('ll') }}
           </p>
         </CardFooter>
       </Card>
