@@ -5,7 +5,7 @@
 - [ ] SEO (meta tags)
 - [ ] page titles
 - [ ] date episodes format
-- [ ] ajouter SxEx sur chaque page d'épisode
+- [x] ajouter SxEx sur chaque page d'épisode
 - [x] Images participants
 - [x] page participant/1
 - [x] page podcast --> redirect to page participant

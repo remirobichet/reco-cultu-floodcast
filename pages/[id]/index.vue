@@ -1,6 +1,14 @@
 <template>
-  <div class="text-5xl font-bold line-clamp-3">
-    {{ data.podcast?.name }}
+  <div class="flex items-end gap-5">
+    <span class="text-6xl font-bold">
+      <span class="text-muted-foreground">S</span>
+      <span>{{ data.podcast?.season }}</span>
+      <span class="text-muted-foreground">E</span>
+      <span>{{ data.podcast?.episode }}</span>
+    </span>
+    <span class="text-5xl font-bold line-clamp-3">
+      {{ data.podcast?.name }}
+    </span>
   </div>
   <p class="text-md text-muted-foreground line-clamp-3">
     {{ data.podcast?.description }}
@@ -13,7 +21,8 @@
     <div class="flex flex-col gap-2">
       <div class="text-2xl font-medium mb-8">Recommandations</div>
       <div class="flex flex-col gap-4">
-        <div v-if="data.groupedRecommendations?.length < 1" class="text-xl text-muted-foreground italic">Aucune recommandation pour cet épisode 😴</div>
+        <div v-if="data.groupedRecommendations?.length < 1" class="text-xl text-muted-foreground italic">Aucune
+          recommandation pour cet épisode 😴</div>
         <div v-else v-for="group in data.groupedRecommendations">
           <NuxtLink :to="`participant/${group.participant.id}`">
             <div class="flex items-center gap-2">
