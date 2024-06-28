@@ -1,7 +1,7 @@
 <template>
   <div class="text-lg font-medium">Participants</div>
   <div class="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
-    <NuxtLink v-for="participant in participants" :to="`participant/${participant.id}`">
+    <NuxtLink v-for="participant in participants" :to="`/participant/${participant.id}`">
       <Card class="cursor-pointer hover:bg-accent">
         <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-1">
         </CardHeader>
@@ -25,6 +25,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: 'Participants',
+})
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const { $supabase } = useNuxtApp()

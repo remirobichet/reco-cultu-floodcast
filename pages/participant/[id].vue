@@ -66,4 +66,8 @@ const { data } = await useAsyncData(
     return response
   }
 )
+
+useHead({
+  title: `Episodes avec ${data.value.participant?.name}`,
+})
 </script>

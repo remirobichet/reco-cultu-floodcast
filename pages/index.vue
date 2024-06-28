@@ -26,6 +26,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: 'Accueil',
+})
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const { $supabase } = useNuxtApp()

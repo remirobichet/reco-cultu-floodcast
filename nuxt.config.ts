@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     "nuxt-security",
-    'dayjs-nuxt'
+    'dayjs-nuxt',
+    '@vueuse/nuxt'
   ],
   shadcn: {
     /**

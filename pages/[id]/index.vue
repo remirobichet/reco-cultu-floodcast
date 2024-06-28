@@ -24,7 +24,7 @@
         <div v-if="data.groupedRecommendations?.length < 1" class="text-xl text-muted-foreground italic">Aucune
           recommandation pour cet épisode 😴</div>
         <div v-else v-for="group in data.groupedRecommendations">
-          <NuxtLink :to="`participant/${group.participant.id}`">
+          <NuxtLink :to="`/participant/${group.participant.id}`">
             <div class="flex items-center gap-2">
               <Avatar class="flex h-9 w-9">
                 <AvatarImage v-if="group.participant.avatar" :src="group.participant.avatar"
@@ -96,4 +96,8 @@ const { data } = await useAsyncData(
     return response
   }
 )
+
+useHead({
+  title: `${data.value.podcast?.name} - S${data.value.podcast?.season}E${data.value.podcast?.episode}`,
+})
 </script>
