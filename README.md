@@ -3,7 +3,8 @@
 - [x] nuxt-security
 - [x] avatar participants
 - [ ] SEO (meta tags)
-- [ ] page titles
+- [ ] Recherche sur les épidodes
+- [x] page titles
 - [x] date episodes format
 - [x] ajouter SxEx sur chaque page d'épisode
 - [x] Images participants
