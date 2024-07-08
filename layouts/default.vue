@@ -41,13 +41,20 @@
         </SheetContent>
       </Sheet>
       <div class="flex w-full items-center gap-4 ml-auto md:gap-2 lg:gap-4">
-        <div class="ml-auto flex-1 flex-initial flex items-center gap-2">
+        <div class="grow">
+          <div class="flex justify-center ml-auto flex-1 sm:flex-initial">
+            <SearchDialog />
+          </div>
+        </div>
+        <div class="flex-1 flex-initial flex items-center gap-2">
           <Button variant="outline" size="sm" @click="mailto">
             <TooltipProvider :delay-duration="100">
               <Tooltip>
                 <TooltipTrigger>Contact</TooltipTrigger>
                 <TooltipContent>
-                  <p class="text-md text-muted-foreground text-center">👋 Une erreure, une idée, une amélioration ? <br>Clique ici pour me contacter</p>
+                  <p class="text-md text-muted-foreground text-center">👋 Une erreure, une idée, une amélioration ?
+                    <br>Clique ici pour me contacter
+                  </p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
