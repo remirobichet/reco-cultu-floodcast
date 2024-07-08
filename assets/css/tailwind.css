@@ -76,3 +76,27 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: .5rem;
+  height: .5rem
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(var(--muted))!important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: calc(var(--radius) - 4px);
+  background-color: hsl(var(--muted-foreground) / .3)!important;
+}
+
+html {
+  scrollbar-color: hsl(215.4 16.3% 46.9% / .3)
+}
+
+html.dark {
+  scrollbar-color: hsl(215.4 16.3% 56.9% / .3)
+}
