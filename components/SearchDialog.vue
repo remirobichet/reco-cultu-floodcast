@@ -36,7 +36,7 @@ const getResults = async () => {
         Rechercher
       </Button>
     </DialogTrigger>
-    <DialogContent class="sm:max-w-[725px]">
+    <DialogContent class="max-w-[400px] md:max-w-[720px]">
       <DialogHeader>
         <DialogTitle>Rechercher</DialogTitle>
         <DialogDescription>
@@ -44,7 +44,7 @@ const getResults = async () => {
         </DialogDescription>
       </DialogHeader>
       <div class="grid gap-4 py-4">
-        <div class="grid grid-cols-4 items-center gap-4">
+        <div class="flex gap-4">
           <Input v-model="search" id="search" class="col-span-3" @keyup.enter="getResults" />
           <Button type="submit" @click="getResults">
             Rechercher
