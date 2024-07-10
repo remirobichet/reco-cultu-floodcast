@@ -1,7 +1,7 @@
 export const seoData = {
   description: 'Découvrez les recommandations culturelles issues du Floodcast. Accédez à une liste organisée par épisode, regroupant films, livres, musiques et autres suggestions partagées par les participants.',
   ogTitle: 'Recommandations culturelles du Floodcast',
-  image: 'https://reco-cultu-floodcast.fr/cover.png',
+  image: 'https://reco-cultu-floodcast.fr/cover.jpg',
   mySite: 'https://reco-cultu-floodcast.fr',
 }
 
