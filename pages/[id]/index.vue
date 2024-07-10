@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-end gap-5">
-    <span class="text-6xl font-bold">
+  <div class="flex flex-col gap-2">
+    <span class="text-3xl font-bold">
       <span class="text-muted-foreground">S</span>
       <span>{{ data.podcast?.season }}</span>
       <span class="text-muted-foreground">E</span>
