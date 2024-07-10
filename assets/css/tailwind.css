@@ -100,3 +100,10 @@ html {
 html.dark {
   scrollbar-color: hsl(215.4 16.3% 56.9% / .3)
 }
+
+/* Reset css */
+
+a {
+  white-space: normal; /* Prevents text from wrapping to the next line */
+  word-break: break-all; /* Break long words if necessary */
+}
