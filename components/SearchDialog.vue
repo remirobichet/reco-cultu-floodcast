@@ -9,22 +9,30 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { Quote as QuoteIcon, Podcast } from 'lucide-vue-next'
 
 const { $supabase } = useNuxtApp()
 
 const open = ref()
 const search = ref('')
-const results = ref()
+const resultsEpisode = ref()
+const resultsRecommandation = ref()
 
 const getResults = async () => {
   if (!search.value) {
     return
   }
-  const { data: resPodcast } = await $supabase
+  const { data: resEpisode } = await $supabase
     .from('podcast')
     .select()
     .or(`name.ilike.%${search.value}%,description.ilike.%${search.value}%`)
-  results.value = resPodcast
+  resultsEpisode.value = resEpisode || []
+
+  const { data: resRecommandation } = await $supabase
+    .from('recommendation')
+    .select('*, podcast!inner (*), participant!inner (*)')
+    .or(`text.ilike.%${search.value}%`)
+  resultsRecommandation.value = resRecommandation || []
 }
 </script>
 
@@ -50,8 +58,13 @@ const getResults = async () => {
             Rechercher
           </Button>
         </div>
-        <div v-if="results" class="max-h-[400px] overflow-auto flex flex-col">
-          <div v-for="(podcast, $index) in results" class="px-2">
+        <!-- <code class="max-h-[400px] overflow-auto"><pre>{{ [...resultsEpisode, ...resultsRecommandation] }}</pre></code> -->
+        <div v-if="resultsEpisode || resultsRecommandation" class="max-h-[400px] overflow-auto flex flex-col">
+          <div v-if="resultsEpisode.length > 0" class="flex items-center gap-2 my-6">
+            <Podcast class="h-6 w-6" />
+            <span class="text-lg">Parmis les épisodes</span>
+          </div>
+          <div v-for="(podcast, $index) in resultsEpisode" class="px-2">
             <NuxtLink :key="podcast.id" :to="`/${podcast.season}-${podcast.episode}`" @click="open = false">
               <div>
                 <div class="text-2xl font-bold line-clamp-1">
@@ -62,7 +75,34 @@ const getResults = async () => {
                 </p>
               </div>
             </NuxtLink>
-            <hr v-if="$index + 1 !== results.length" class="my-6">
+            <hr v-if="$index + 1 !== resultsEpisode.length" class="my-6">
+          </div>
+          <div v-if="resultsRecommandation.length > 0" class="flex items-center gap-2 my-6">
+            <QuoteIcon class="h-6 w-6" />
+            <span class="text-lg">Parmis les recommandations</span>
+          </div>
+          <div v-for="(recommandation, $index) in resultsRecommandation" class="px-2">
+            <NuxtLink :key="recommandation.podcast.id"
+              :to="`/${recommandation.podcast.season}-${recommandation.podcast.episode}`" @click="open = false">
+              <div>
+                <div class="text-2xl font-bold line-clamp-1">
+                  {{ recommandation.podcast.name }} - S{{ recommandation.podcast.season }}E{{
+                    recommandation.podcast.episode }}
+                </div>
+                <div class="flex gap-3 items-center">
+                  <Avatar class="flex h-9 w-9">
+                    <AvatarImage v-if="recommandation.participant.avatar" :src="recommandation.participant.avatar"
+                      :alt="`${recommandation.participant.name} avatar`" />
+                    <AvatarFallback>{{ recommandation.participant.name[0] }}</AvatarFallback>
+                  </Avatar>
+                  <div class="flex flex-col">
+                    <span class="text-lg">{{ recommandation.participant.name }}</span>
+                    <span class="text-xs text-muted-foreground">{{ recommandation.text }}</span>
+                  </div>
+                </div>
+              </div>
+            </NuxtLink>
+            <hr v-if="$index + 1 !== resultsRecommandation.length" class="my-6">
           </div>
         </div>
       </div>
